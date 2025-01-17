@@ -2,6 +2,7 @@ import xarray as xr
 import numpy as np
 import gsw
 import os
+from tqdm import tqdm
 
 from dask_jobqueue import SLURMCluster
 from dask.distributed import Client
@@ -18,7 +19,7 @@ cluster = SLURMCluster(
     ],
     scheduler_options={"dashboard_address": ":4242"}
 )
-cluster.scale(jobs=50)  # Adjust based on your system
+cluster.scale(jobs=50)
 client = Client(cluster) 
 
 # --- Data loading ---
@@ -29,7 +30,7 @@ params = ["temperature", "salinity"]
 datasets = []
 months = np.arange(1, 13)
 
-for param in params:
+for param in tqdm(params):
     urls = [f"{base_url}/{param}/decav/1.00/woa18_decav_{param[0]}{m:02.0f}_01.nc" for m in months]
     ds = xr.open_mfdataset(urls, decode_times=False, parallel=True)
 
