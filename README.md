@@ -17,7 +17,6 @@ The repository is organized as follows:
 - **Data Access**:
   - The dataset can be accessed via:
     - [OPeNDAP server](http://www.smast.umassd.edu:8081/thredds/dodsC/Vortex_profiles)
-    - [Zenodo archive](https://doi.org/[INSERT_DOI])
 - **Code**:
   - Scripts for dataset processing, analysis, and vortex-profile matching are available in the `/src` directory.
   - Includes tools for downloading, filtering, and matching profiles with eddies.
