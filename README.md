@@ -1,5 +1,7 @@
 # Vortex-Profile Matching Dataset
 
+![Matching Profiles with Vortices Globally](img/matching_global.png)
+
 ## Overview
 The **Vortex-Profile Matching Dataset** combines vertical profiles from the **World Ocean Database (WOD)** with mesoscale eddy data from the **META3.2 DT** altimetry-derived eddy atlas. This comprehensive dataset bridges the gap between oceanographic in situ measurements and satellite-based observations, enabling a better understanding of mesoscale eddies' vertical structure and their impact on heat, mass, and nutrient transport.
 
