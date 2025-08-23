@@ -21,10 +21,6 @@ Key features:
 
 ## Organization
 The repository is organized as follows:
-- **Data Access**:
-  - The dataset can be accessed via:
-    - [OPeNDAP server](http://www.smast.umassd.edu:8081/thredds/catalog/Vortex_profiles/vortex_profiles/catalog.html)
-- **Code**:
   - Scripts for dataset processing, analysis, and vortex-profile matching are available in the `/src` directory.
   - Includes tools for downloading, filtering, and matching profiles with eddies.
   - Examples of usage is provided in `/examples` directory.
