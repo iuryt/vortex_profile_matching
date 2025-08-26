@@ -19,10 +19,7 @@ for domain in domains:
     for dataset in datasets:
         for variable in variables:
             
-            # 1) abrir o NetCDF
             SRC = f"../data/external/{domain.title()}/{domain}_{dataset}_{variable}.nc"   # caminho local do arquivo
-
-            # check if the file exists
 
             if not os.path.exists(SRC):
                 # skip loop iteration if file does not exist
@@ -33,11 +30,9 @@ for domain in domains:
 
             ds = xr.open_dataset(SRC).load()
 
-            # garantir chunking por cast (1) e todos os níveis em cada chunk
-            nlev = int(ds.sizes["levels"])  # seus dims são casts x levels
+            nlev = int(ds.sizes["levels"]) 
             ds = ds.chunk({"casts": 1000, "levels": nlev})
 
-            # 3) criar/abrir o repositório Icechunk no S3
             storage = icechunk.s3_storage(
                 bucket="iuryt-shared",
                 prefix=f"icechunk/ocean/vortex-profiles/{domain.title()}/{dataset}_{variable}",
@@ -49,7 +44,6 @@ for domain in domains:
             except Exception:
                 repo = icechunk.Repository.create(storage)
 
-            # escrever (commitar) usando os chunks definidos acima
             sess = repo.writable_session("main")
 
             with ProgressBar():
