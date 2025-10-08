@@ -462,7 +462,7 @@ zipp = { version = "==3.15.0" }
 zlib = { version = "==1.2.13" }
 zstd = { version = "==1.5.2" }
 
-[pypi-dependencies]
+[feature.legacy39.pypi-dependencies]
 shapely = "==2.0.1"
 wget = "==3.2"
 
@@ -482,10 +482,11 @@ matplotlib = ">=3.10.5,<4"
 gsw = ">=3.6.20,<4"
 tqdm = ">=4.67.1,<5"
 scipy = ">=1.16.1,<2"
+cartopy = ">=0.25.0,<0.26"
+xhistogram = ">=0.3.2,<0.4"
+shapely = ">=2.1.2,<3"
 
 [environments]
 default = ["py311"]
 legacy = ["legacy39"]
 
-[dependencies]
-xhistogram = ">=0.3.2,<0.4"
